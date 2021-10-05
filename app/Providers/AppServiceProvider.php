@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('includes.BottomNavbar', function($view) {
+        view()->composer('*', function($view) {
             $view->with('menus', Menu::menus());
         });
     }
