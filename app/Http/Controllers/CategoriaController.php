@@ -43,15 +43,15 @@ class CategoriaController extends Controller
             $file = $request->file('imagen');
             $extension = $request->file('imagen')->extension();
             $file_name = time().'_'.uniqid().'.'.$extension;
-            $upload = $file->storeAs("upload_categories", $file_name);
+            $upload = $file->storeAs("upload_categories", $file_name, 'public');
 
             if($upload) {
                 Categoria::create([
                     'nombre'=>$request->nombre,
-                    'slug'=>Str::slug($request->nombre, '_'),
+                    'slug'=>Str::slug($request->nombre, '-'),
                     'descripcion' => $request->descripcion,
                     'departamento_id'=> $request->departamento,
-                    'imagen'=>$upload,
+                    'imagen'=>$file_name,
                     'created_at'=>Carbon::now('America/El_Salvador'),
                     'updated_at'=>Carbon::now('America/El_Salvador'),
                 ]);
@@ -68,9 +68,10 @@ class CategoriaController extends Controller
 
     public function delete(Request $request) {
         $categoria = Categoria::find($request->categoria_id);
-
-        if ($categoria->imagen != null && \Storage::disk('local')->exists($categoria->imagen)) {
-            \Storage::disk('local')->delete('app', $categoria->imagen);
+        $path = "upload_categories/";
+        $image_path = $path.$categoria->imagen;
+        if ($categoria->imagen != null && \Storage::disk('public')->exists($image_path)) {
+            \Storage::disk('public')->delete($image_path);
         }
 
         $delete = $categoria->delete();

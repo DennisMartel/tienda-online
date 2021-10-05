@@ -1,4 +1,4 @@
-@forelse ($subcategorias as $item)
+@forelse ($sliders as $item)
 <tr>
     <td>{{ $item->nombre }}</td>
     <td>
@@ -10,7 +10,7 @@
     </td>
     <td>{{ $item->created_at }}</td>
     <td>{{ $item->updated_at }}</td>
-    <td><img src="{{ \Storage::disk('local')->url('upload_subcategories/'.$item->imagen) }}" alt="{{ $item->nombre }}" width="50"></td>
+    <td><img src="{{ \Storage::disk('local')->url($item->imagen) }}" alt="{{ $item->nombre }}" width="50"></td>
     <td>
         <div class="d-flex">
             <button type="button" class="btn btn-warning mr-2" data-id=""><i class="far fa-edit"></i></button>

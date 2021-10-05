@@ -10,7 +10,7 @@
     </td>
     <td>{{ $item->created_at }}</td>
     <td>{{ $item->updated_at }}</td>
-    <td><img src="/storage/app/{{ $item->imagen }}" alt="{{ $item->nombre }}" width="50"></td>
+    <td><img src="{{ \Storage::disk('local')->url('upload_categories/'.$item->imagen) }}" alt="{{ $item->nombre }}" width="50"></td>
     <td>
         <div class="d-flex">
             <button type="button" class="btn btn-warning mr-2" data-id=""><i class="far fa-edit"></i></button>

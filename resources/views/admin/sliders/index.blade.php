@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'Marcas')
+@section('title', 'Carouseles')
 
 @section('breadcrumb')
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Administración Marcas</h1>
+                <h1 class="m-0">Administración Carouseles</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Administración Marcas</li>
+                    <li class="breadcrumb-item active">Administración Carouseles</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -27,22 +27,22 @@
             <div class="card-header bg-light d-flex flex-wrap justify-content-between align-items-center">
                 <div class="card-title">
                     <i class="fas fa-table mr-2"></i>
-                    Administración Marcas
+                    Administración Carouseles
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-success ml-sm-auto" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-plus-circle"></i>
-                    Agregar Marca
+                    Agregar Carousel
                 </button>
   
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form action="{{ route('marcas.store') }}" method="post" id="form-add" enctype="multipart/form-data">
+                            <form action="{{ route('sliders.store') }}" method="post" id="form-add" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Crear Categoria</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Crear Carousel</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true"><i class="fas fa-times"></i></span>
                                     </button>
@@ -137,7 +137,7 @@
                     $('#btn-save').text('Guardar')
                     $('.img-holder').empty();
                     $('.modal').modal('hide');
-                    getMarcas(1);
+                    getSliders(1);
                     toastr.success(data.msg);
                 }
             }
@@ -169,25 +169,25 @@
     });
 
     /// OBTIENE TODOS LOS REGISTROS
-    function getMarcas(page) {
-        $.get('/getMarcas', {}, function(data) {
+    function getSliders(page) {
+        $.get('/getSliders', {}, function(data) {
             $('#all-data').html(data.result);
             $('#pagination-links').html(data.links);
         }, 'json');
     }
-    getMarcas(1);
+    getSliders(1);
 
     /// OBTIENE LOS REGISTROS BUSCADOS
     $(document).on('keyup', '.search', function() {
         if ($(this).val().length > 0) {
             var search = $(this).val();
-            $.get('/getMarcas', { search: search }, function(data) {
+            $.get('/getSliders', { search: search }, function(data) {
                 $('#all-data').html(data.result);
                 $('#pagination-links').html(data.links)
             }, 'json');
             return;
         }
-        getMarcas(1);
+        getSliders(1);
     });
 
     /// OBTIENE LOS REGISTROS PAGINADOS
@@ -199,7 +199,7 @@
 
     function paginarDepartamentos(page) {
         var search = $('.search').val();
-        $.get('/getMarcas', { page: page, search: search }, function(data) {
+        $.get('/getSliders', { page: page, search: search }, function(data) {
             $('#all-data').html(data.result);
             $('#pagination-links').html(data.links);
         }, 'json');
@@ -208,7 +208,7 @@
 
     /// ELIMINA UN REGISTRO
     $(document).on('click', '.deleteBtn', function() {
-        var marca_id = $(this).data('id');
+        var slider_id = $(this).data('id');
         var name = $(this).data('name');
         Swal.fire({
             title: 'Alerta',
@@ -224,13 +224,13 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "/deleteMarca",
+                    url: "/deleteSlider",
                     method: "POST",
-                    data: { marca_id: marca_id },
+                    data: { slider_id: slider_id },
                     dataType: 'json',
                     success: function(data) {
                         if (data.code == 1) {
-                            getMarcas(1);
+                            getSliders(1);
                             toastr.success(data.msg);
                         } else {
                             toastr.error(data.msg);

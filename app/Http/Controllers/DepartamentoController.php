@@ -37,14 +37,14 @@ class DepartamentoController extends Controller
             $file = $request->file('imagen');
             $extension = $request->file('imagen')->extension();
             $file_name = time().'_'.uniqid().'.'.$extension;
-            $upload = $file->storeAs("upload_parent", $file_name);
+            $upload = $file->storeAs("upload_parent", $file_name, 'public');
 
             if($upload) {
                 Departamento::create([
                     'nombre'=>$request->nombre,
-                    'slug'=>Str::slug($request->nombre, '_'),
+                    'slug'=>Str::slug($request->nombre, '-'),
                     'descripcion' => $request->descripcion,
-                    'imagen'=>$upload,
+                    'imagen'=>$file_name,
                     'created_at'=>Carbon::now('America/El_Salvador'),
                     'updated_at'=>Carbon::now('America/El_Salvador'),
                 ]);
@@ -61,9 +61,11 @@ class DepartamentoController extends Controller
 
     public function delete(Request $request) {
         $departamento = Departamento::find($request->departamento_id);
+        $path = "upload_parent/";
+        $image_path = $path.$departamento->imagen;
 
-        if ($departamento->imagen != null && \Storage::disk('local')->exists($departamento->imagen)) {
-            \Storage::disk('local')->delete('app', $departamento->imagen);
+        if ($departamento->imagen != null && \Storage::disk('public')->exists($image_path)) {
+            \Storage::disk('public')->delete($image_path);
         }
 
         $delete = $departamento->delete();

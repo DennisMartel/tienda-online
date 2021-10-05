@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator; 
 
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('includes.BottomNavbar', function($view) {
+            $view->with('menus', Menu::menus());
+        });
     }
 }

@@ -43,15 +43,15 @@ class SubcategoriaController extends Controller
             $file = $request->file('imagen');
             $extension = $request->file('imagen')->extension();
             $file_name = time().'_'.uniqid().'.'.$extension;
-            $upload = $file->storeAs("upload_subcategories", $file_name);
+            $upload = $file->storeAs("upload_subcategories", $file_name, 'public');
 
             if($upload) {
                 Subcategoria::create([
                     'nombre'=>$request->nombre,
-                    'slug'=>Str::slug($request->nombre, '_'),
+                    'slug'=>Str::slug($request->nombre, '-'),
                     'descripcion' => $request->descripcion,
                     'categoria_id'=> $request->categoria,
-                    'imagen'=>$upload,
+                    'imagen'=>$file_name,
                     'created_at'=>Carbon::now('America/El_Salvador'),
                     'updated_at'=>Carbon::now('America/El_Salvador'),
                 ]);
@@ -68,9 +68,11 @@ class SubcategoriaController extends Controller
 
     public function delete(Request $request) {
         $subcategoria = Subcategoria::find($request->subcategoria_id);
+        $path = "upload_subcategories/";
+        $image_path = $path.$subcategoria->imagen;
 
-        if ($subcategoria->imagen != null && \Storage::disk('local')->exists($subcategoria->imagen)) {
-            \Storage::disk('local')->delete('app', $subcategoria->imagen);
+        if ($subcategoria->imagen != null && \Storage::disk('public')->exists($image_path)) {
+            \Storage::disk('public')->delete($image_path);
         }
 
         $delete = $subcategoria->delete();

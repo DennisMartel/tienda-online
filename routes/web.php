@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\WebController::class, 'index'])->name('home');
 
 Route::get('dashboard', [App\Http\Controllers\PanelController::class, 'index'])->name('dashboard');
 
@@ -24,3 +22,11 @@ Route::get('getSubcategorias', [App\Http\Controllers\SubcategoriaController::cla
 Route::post('deleteSubcategoria', [App\Http\Controllers\SubcategoriaController::class, 'delete'])->name('subcategorias.delete');
 
 Route::get('marcas', [App\Http\Controllers\MarcaController::class, 'index'])->name('marcas.index');
+Route::post('marcas', [App\Http\Controllers\MarcaController::class, 'store'])->name('marcas.store');
+Route::get('getMarcas', [App\Http\Controllers\MarcaController::class, 'getMarcas'])->name('marcas.getMarcas');
+Route::post('deleteMarca', [App\Http\Controllers\MarcaController::class, 'delete'])->name('marcas.delete');
+
+Route::get('sliders', [App\Http\Controllers\SliderController::class, 'index'])->name('sliders.index');
+Route::post('sliders', [App\Http\Controllers\SliderController::class, 'store'])->name('sliders.store');
+Route::get('getSliders', [App\Http\Controllers\SliderController::class, 'getSliders'])->name('sliders.getSliders');
+Route::post('deleteSlider', [App\Http\Controllers\SliderController::class, 'delete'])->name('sliders.delete');

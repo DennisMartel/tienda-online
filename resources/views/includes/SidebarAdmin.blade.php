@@ -50,35 +50,41 @@
               <p>Marcas</p>
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
-                Tables
+                Ecommerce
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
+                <a href="{{ route('sliders.index') }}" class="nav-link {{ request()->routeIs('sliders.index') ? 'active' : '' }}">
+                  <i class="far fa-images nav-icon"></i>
+                  <p>Carousel</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                  <i class="far fa-list-alt nav-icon"></i>
+                  <p>Menu Navegación</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/tables/data.html" class="nav-link">
+                  <i class="fas fa-percentage nav-icon"></i>
+                  <p>Promociones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/tables/jsgrid.html" class="nav-link">
+                  <i class="fas fa-ticket-alt nav-icon"></i>
+                  <p>Cupones</p>
                 </a>
               </li>
             </ul>
-          </li> --}}
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
