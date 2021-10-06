@@ -12,7 +12,7 @@
                             @if ($item['parent'] != 0)
                                 @break
                             @endif
-                            @if ($item['submenu'] == [])
+                            @if($item['submenu'] == [])
                                 <li><a class="dropdown-item" href="#">{{ $item['name'] }}</a></li>
                             @else
                                 <li class="has-submenu">
@@ -20,7 +20,28 @@
                                     <div class="megasubmenu dropdown-menu">
                                         <div class="row">
                                             @foreach ($item['submenu'] as $submenu)
-                                                @include('partials.client.MenuItem', ['item' => $submenu])
+                                                @if ($submenu['submenu'] == [])
+                                                    <div class="col-md-4">
+                                                        <h6 class="text-danger border-bottom pb-1">{{ $submenu['name'] }}</h6>
+                                                    </div>
+                                                @else
+                                                    <div class="col-md-4">
+                                                        <h6 class="text-danger border-bottom pb-1">{{ $submenu['name'] }}</h6>
+                                                        <ul class="list-unstyled">
+                                                            @if($submenu['submenu'] == [])
+                                                                <li><a class="dropdown-item" href="#">{{ $submenu['submenu'] }}</a></li>
+                                                            @else
+                                                                @foreach ($submenu['submenu'] as $submenu)
+                                                                    @if ($submenu['submenu'] == [])
+                                                                        <li class="mb-2"><a href="" class="text-decoration-none text-dark">{{ $submenu['name'] }}</a></li>
+                                                                    @else
+                                                                        <li class="mb-2"><a href="" class="text-decoration-none text-dark">{{ $submenu['name'] }}</a></li>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -39,7 +60,7 @@
                     <a class="nav-link" href=""><i class="fas fa-box-open"></i> Nuevos Productos</a>
                 </li>
             </ul>
-            </div>
+        </div>
         <!-- navbar-collapse.// -->
     </div>
     <!-- container-fluid.// -->
