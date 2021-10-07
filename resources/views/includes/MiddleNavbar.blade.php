@@ -1,10 +1,10 @@
 <header class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark px-0">
     <div class="container flex-sm-nowrap px-3">
         <a href="mr-0 mr-sm-4 logo" class="navbar-brand">
-            <img src="https://almacenesbomba.com/img/logos/Logoweb.png" alt="almacenes bomba" class="img-fluid">
+            <img src="{{ asset('img/logo.svg') }}" alt="almacenes bomba" class="img-fluid" width="40">
         </a>
 
-        <div class="navbar-btns d-flex position-relative order-sm-3">
+        <div class="navbar-btns d-flex position-relative order-md-3">
             <a class="navbar-btn text-white mr-3 text-decoration-none" href="">
                 <i class="far fa-user"></i> 
             </a>

@@ -10,7 +10,7 @@
                 <div class="carousel-inner">
                     @foreach ($sliders as $key => $item)
                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                        <img src="{{ \Storage::disk('local')->url($item->imagen) }}" class="d-block w-100" alt="{{ $item->nombre }}">
+                        <img src="{{ \Storage::disk('local')->url($item->imagen) }}" height="200" width="auto" style="object-fit: cover;" class="d-block w-100" alt="{{ $item->nombre }}">
                     </div>
                     @endforeach
                 </div>
