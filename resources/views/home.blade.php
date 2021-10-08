@@ -3,14 +3,14 @@
 @section('title', 'Inicio')
 
 @section('content')
-<div class="mt-1 pt-lg-1 mb-4 mb-md-5">
+<div class="mt-2 pt-lg-1 mb-4 mb-md-5">
     <div class="row">
         <div class="col-md-12">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     @foreach ($sliders as $key => $item)
                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                        <img src="{{ \Storage::disk('local')->url($item->imagen) }}" height="200" width="auto" style="object-fit: cover;" class="d-block w-100" alt="{{ $item->nombre }}">
+                        <img src="{{ \Storage::disk('local')->url($item->imagen) }}" width="auto" class="d-block w-100" alt="{{ $item->nombre }}">
                     </div>
                     @endforeach
                 </div>
@@ -22,7 +22,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-                </div>
+            </div>
         </div>
     </div>
 </div>

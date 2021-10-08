@@ -10,6 +10,6 @@ class WebController extends Controller
     public function index()
     {
         $sliders = Slider::orderBy('id', 'DESC')->get();
-        return view('client.home', compact('sliders'));
+        return view('home', compact('sliders'));
     }
 }

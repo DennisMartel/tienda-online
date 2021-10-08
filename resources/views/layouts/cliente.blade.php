@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/menu.css?v=') }}@php echo(rand()); @endphp">
+    <link rel="stylesheet" href="{{ asset('css/main.css?v=') }}@php echo(rand()); @endphp">
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
 </head>
 <body>
     
@@ -17,7 +19,7 @@
 
     @include('includes.BottomNavbar')
 
-    <div class="container px-3">
+    <div class="container">
         @yield('content')
     </div>
 

@@ -1,4 +1,4 @@
-<header class="navbar shadow-sm navbar-expand-md navbar-light bg-light px-0 py-0">
+<header class="navbar shadow-sm navbar-expand-md navbar-light bg-light px-0 py-0 d-none d-sm-none d-md-none d-lg-block">
     <div class="container px-3">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#main_nav">
         <span class="navbar-toggler-icon"></span>
