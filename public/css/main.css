@@ -1,104 +1,245 @@
-.single-product {
-    border: 1px solid #eee;
-    border-radius: 4px;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
-    margin-top: 30px;
-    -webkit-box-shadow: 0 0 20px #00000012;
-    box-shadow: 0 0 20px #00000012;
-    padding: 8px;
-    background: #fff;
+body {
+    background: #f5f5f5;
+}
+.e-shop-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.single-product .product-image {
-    overflow: hidden;
+.e-shop-widget-btn-header {
+    margin: 0 0 0 15px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     position: relative;
 }
 
-.single-product .product-image img {
-    width: 100%;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
+.e-shop-widget-btn-header ion-icon {
+    color: #555;
+    font-size: 23px;
+    margin-left: -7px;
 }
 
-.single-product .product-image .new-tag {
-    background: #0167f3;
-    border-radius: 2px;
+.e-shop-search-bar {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.e-shop-input-search {
+    box-shadow: none !important;
+    border-right: none !important;
+    background: #f5f5f5;
+    height: 50px;
+    border: none !important;
+}
+
+.e-shop-input-search:focus {
+    background: #f5f5f5;
+}
+
+.e-shop-icon-search {
+    background: #f5f5f5;
+    border: none !important;
+}
+
+.e-shop-btn-header {
+    margin: 0 15px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+}
+
+.e-shop-btn-header ion-icon {
+    font-size: 23px;
+    color: #555 !important;
+}
+
+.e-shop-badge-btn {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    width: 24px;
+    height: 24px;
     font-size: 12px;
-    color: #fff;
-    font-weight: 700;
-    position: absolute;
-    top: 0;
-    padding: 5px 10px;
-    left: 0;
-    z-index: 22;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: #f5f5f5;
+    background: #019345;
+    border: 2px solid #f5f5f5;
+    text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.single-product .product-image .button {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    bottom: -60px;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
-    opacity: 0;
-    visibility: hidden;
+.e-shop-offcanvas-total-item {
+    margin: 0 auto;
+    color: #019345;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
-.single-product .product-image .button .btn {
-    padding: 12px 20px;
-    font-size: 13px;
-    font-weight: 600;
-    width: 140px;
+.cart-list {
+    height: 100%;
+    padding: 0 15px;
+    max-height: calc(100vh - 210px);
+    overflow-y: scroll;
 }
 
-.single-product .product-info {
-    padding: 20px;
-    background-color: #fff;
+.cart-item {
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid #f5f5f5;
 }
 
-.single-product .product-info .category {
-    color: #888;
-    font-size: 13px;
-    display: block;
-    margin-bottom: 2px;
+.cart-media {
+    position: relative;
+    margin-right: 25px;
 }
 
-.single-product .product-info .title a {
-    font-size: 16px;
-    font-weight: 700;
-    color: #081828;
+.cart-media a img {
+    width: 100px;
+    border-radius: 8px;
+}
+
+.cart-info-group {
+    width: 100%;
+}
+
+.cart-info {
+    margin-bottom: 13px;
+}
+
+.cart-info h6 {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.cart-info h6 a {
+    color: #555;
     text-decoration: none;
 }
 
-.single-product .product-info .review {
-    margin-top: 5px;
+.cart-info p {
+    font-size: 14px;
 }
 
-.single-product .product-info .review li {
+.cart-action-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.cart-action-group .product-action {
+    display: flex;
+}
+
+.product-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.product-action button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.product-action button ion-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 12px !important;
+    line-height: 30px;
+    border-radius: 6px;
+    text-align: center;
     display: inline-block;
+    color: #555;
+    background: #f5f5f5;
+    text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
 }
 
-.single-product .product-info .review li i {
-    color: #fecb00;
-    font-size: 13px;
+.cart-action-group .product-action input {
+    width: 45px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #019345;
+    background: #f5f5f5;
+    border: none !important;
+    outline: none !important;
 }
 
-.single-product .product-info .review li span {
-    display: inline-block;
-    margin-left: 4px;
-    color: #888;
-    font-size: 13px;
+.cart-action-group h6 {
+    font-weight: 500;
+    color: #019345;
 }
 
-.single-product .product-info .price {
-    margin-top: 15px;
+.cart-footer {
+    position: absolute;
+    padding: 20px;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.single-product .product-info .price span {
-    font-size: 17px;
-    font-weight: 700;
-    color: #0167f3;
-    display: inline-block;
+.cart-footer .cart-checkout-btn {
+    background: #019345;
+    border-radius: 6px;
+    color: #f5f5f5;
+    padding: 15px;
+    text-decoration: none;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.product-card {
+    border: none !important;
+}
+
+.product-name a {
+    margin-bottom: 3px;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+}
+
+.product-price {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-price p {
+    margin-right: 10px;
+    color: #019345;
+    font-weight: bold;
+}
+
+.btn-cart {
+    background: #019345;
+    color: #fff;
+    text-align: center;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn-cart ion-icon {
+    font-weight: bold;
+    font-size: 23px;
 }
