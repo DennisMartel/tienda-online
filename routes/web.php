@@ -36,3 +36,9 @@ Route::get('sliders', [App\Http\Controllers\SliderController::class, 'index'])->
 Route::post('sliders', [App\Http\Controllers\SliderController::class, 'store'])->name('sliders.store');
 Route::get('getSliders', [App\Http\Controllers\SliderController::class, 'getSliders'])->name('sliders.getSliders');
 Route::post('deleteSlider', [App\Http\Controllers\SliderController::class, 'delete'])->name('sliders.delete');
+
+Route::get('productos', [App\Http\Controllers\ProductoController::class, 'index'])->name('productos.index');
+Route::get('setProducto', [App\Http\Controllers\ProductoController::class, 'create'])->name('productos.create');
+Route::post('productos', [App\Http\Controllers\ProductoController::class, 'store'])->name('productos.store');
+Route::get('getProductos', [App\Http\Controllers\ProductoController::class, 'getSliders'])->name('productos.getProductos');
+Route::post('deleteProducto', [App\Http\Controllers\ProductoController::class, 'delete'])->name('productos.delete');

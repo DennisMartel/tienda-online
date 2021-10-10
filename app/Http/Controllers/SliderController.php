@@ -18,7 +18,7 @@ class SliderController extends Controller
     {
         $validator = \Validator::make($request->all(), [
             'nombre'=>'required|string|unique:sliders',
-            // 'enlace' => 'required|string',
+            'enlace' => 'required|string',
             'descripcion'=>'nullable|string',
             'imagen'=>'required|image',
         ], [
@@ -26,8 +26,8 @@ class SliderController extends Controller
             'nombre.string'=>'Los valores ingresados no son admitidos.',
             'nombre.unique'=>'Ya existe un carousel con este nombre.',
 
-            // 'enlace.required'=>'El enlace del carousel es requerido.',
-            // 'enlace.string'=>'Los valores ingresados no son admitidos.',
+            'enlace.required'=>'El enlace del carousel es requerido.',
+            'enlace.string'=>'Los valores ingresados no son admitidos.',
 
             'descripcion.string'=>'Los valores ingresados no son admitidos.',
 
@@ -47,6 +47,8 @@ class SliderController extends Controller
                 Slider::create([
                     'nombre'=>$request->nombre,
                     'slug'=>Str::slug($request->nombre, '-'),
+                    'enlace'=>$request->enlace,
+                    'tipo'=>$request->tipo,
                     'descripcion' => $request->descripcion,
                     'imagen'=>$upload,
                     'created_at'=>Carbon::now('America/El_Salvador'),

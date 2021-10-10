@@ -37,7 +37,7 @@ class MarcaController extends Controller
             $file = $request->file('imagen');
             $extension = $request->file('imagen')->extension();
             $file_name = time().'_'.uniqid().'.'.$extension;
-            $upload = $file->storeAs("upload_brands", $file_name);
+            $upload = $file->storeAs("upload_brands", $file_name, 'public');
 
             if($upload) {
                 Marca::create([
@@ -62,8 +62,8 @@ class MarcaController extends Controller
     public function delete(Request $request) {
         $marca = Marca::find($request->marca_id);
 
-        if ($marca->imagen != null && \Storage::disk('local')->exists($marca->imagen)) {
-            \Storage::disk('local')->delete('app', $marca->imagen);
+        if ($marca->imagen != null && \Storage::disk('public')->exists($marca->imagen)) {
+            \Storage::disk('public')->delete('app', $marca->imagen);
         }
 
         $delete = $marca->delete();

@@ -1,4 +1,4 @@
-@forelse ($marcas as $item)
+@forelse ($productos as $item)
 <tr>
     <td>{{ $item->nombre }}</td>
     <td>

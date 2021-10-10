@@ -54,6 +54,19 @@
                                         <span class="text-danger error-text nombre_error"></span>
                                     </div>
                                     <div class="form-group">
+                                        <label for="nombre">Enlace Banner</label>
+                                        <input type="text" name="enlace" id="enlace" class="form-control">
+                                        <span class="text-danger error-text enlace_error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombre">Tipo</label>
+                                        <select class="form-control" name="tipo" id="tipo">
+                                            <option value="PRINCIPAL">PRINCIPAL</option>
+                                            <option value="PUBLICITARIO">PUBLICITARIO</option>
+                                        </select>
+                                        <span class="text-danger error-text tipo_error"></span>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="descripcion">Descripción</label>
                                         <textarea class="form-control" name="descripcion" id="descripcion" rows="2"></textarea>
                                         <span class="text-danger error-text descripcion_error"></span>
@@ -208,7 +221,7 @@
 
     /// ELIMINA UN REGISTRO
     $(document).on('click', '.deleteBtn', function() {
-        var slider_id = $(this).data('id');
+        var producto_id = $(this).data('id');
         var name = $(this).data('name');
         Swal.fire({
             title: 'Alerta',
@@ -226,7 +239,7 @@
                     },
                     url: "/deleteSlider",
                     method: "POST",
-                    data: { slider_id: slider_id },
+                    data: { producto_id: producto_id },
                     dataType: 'json',
                     success: function(data) {
                         if (data.code == 1) {

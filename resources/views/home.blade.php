@@ -31,15 +31,15 @@
     <div class="container">
         <p class="fs-1 my-5 fw-bold d-block text-center">Tendencias</p>
         <div class="row">
-            @for($i = 0; $i < 10; $i++)
+            @foreach ($productos as $item)
                 <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
                     <div class="card product-card">
                         <div class="card-body product-media">
-                            <img src="https://themes.themewild.com/organic/assets/img/product/01.png" alt="" class="img-fluid">
+                            <img src="{{ \Storage::disk('local')->url($item->imagenes) }}" alt="" class="img-fluid">
                             <div class="product-card-info">
                                 <h6 class="product-name">
-                                    <a href="product-details.html">
-                                        fresh organic apple
+                                    <a href="{{ route('product-detail', $item->slug) }}">
+                                        {{ $item->nombre }}
                                     </a>
                                 </h6>
                             </div>
@@ -51,7 +51,7 @@
                                 <ion-icon name="star-outline"></ion-icon>
                             </div>
                             <div class="product-price">
-                                <p>$40.00</p>
+                                <p>${{ number_format($item->precio_venta, 2, '.', ',') }}</p>
                                 <del>$50.00</del>
                             </div>
                             <button type="button" class="btn-cart">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 

@@ -51,6 +51,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('productos.index') }}" class="nav-link {{ request()->routeIs('productos.index') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-box"></i>
+              <p>Producto</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
