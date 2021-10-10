@@ -12,4 +12,14 @@ class WebController extends Controller
         $sliders = Slider::orderBy('id', 'DESC')->get();
         return view('home', compact('sliders'));
     }
+
+    public function product_detail($slug)
+    {
+        return view('product');
+    }
+
+    public function shop()
+    {
+        return view('shop');
+    }
 }

@@ -17,6 +17,8 @@ class CreateSlidersTable extends Migration
             $table->id();
             $table->string('nombre')->unique();
             $table->string('slug')->unique();
+            $table->string('enlace');
+            $table->enum('tipo', ['PRINCIPAL', 'PUBLICITARIO'])->default('PRINCIPAL');
             $table->longText('descripcion')->nullable();
             $table->enum('status', ['ACTIVO', 'DESACTIVO'])->default('ACTIVO');
             $table->string('imagen')->nullable();

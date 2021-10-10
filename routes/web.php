@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\WebController::class, 'index'])->name('home');
+Route::get('product-detail/{slug}', [App\Http\Controllers\WebController::class, 'product_detail'])->name('product-detail');
+Route::get('shop', [App\Http\Controllers\WebController::class, 'shop'])->name('shop');
+
+
+
+
 
 Route::get('dashboard', [App\Http\Controllers\PanelController::class, 'index'])->name('dashboard');
 

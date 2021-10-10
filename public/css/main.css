@@ -1,5 +1,6 @@
 body {
     background: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
 }
 .e-shop-widget-header {
     display: flex;
@@ -81,6 +82,7 @@ body {
     text-transform: capitalize;
     font-weight: bold;
 }
+
 
 .cart-list {
     height: 100%;
@@ -229,6 +231,10 @@ body {
     font-weight: bold;
 }
 
+.product-price del {
+    color: #555;
+}
+
 .btn-cart {
     background: #019345;
     color: #fff;
@@ -242,4 +248,46 @@ body {
 .btn-cart ion-icon {
     font-weight: bold;
     font-size: 23px;
+}
+
+@media (min-width: 1200px) {
+    .col-sm-five {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+.delivery-card {
+    border: none;
+}
+
+.deliver-icon ion-icon {
+    display: block;
+    margin: 0 auto;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.delivery-info p {
+    text-align: center;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.shop-box-filter,
+.shop-section-filter {
+    border: none;
+}
+
+.shop-section-filter {
+    margin-bottom: 30px;
+}
+
+.shop-box-filter .shop-box-content-filter p {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f5f5f5;
 }

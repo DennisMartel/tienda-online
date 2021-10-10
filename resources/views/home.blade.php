@@ -31,8 +31,8 @@
     <div class="container">
         <p class="fs-1 my-5 fw-bold d-block text-center">Tendencias</p>
         <div class="row">
-            @for($i = 0; $i < 12; $i++)
-                <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-3">
+            @for($i = 0; $i < 10; $i++)
+                <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
                     <div class="card product-card">
                         <div class="card-body product-media">
                             <img src="https://themes.themewild.com/organic/assets/img/product/01.png" alt="" class="img-fluid">
@@ -61,6 +61,56 @@
                     </div>
                 </div>
             @endfor
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="card delivery-card my-4">
+            <div class="card-body delivery-card-content">
+                <div class="row d-flex">
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
+                        <div class="deliver-icon">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </div>
+                        <div class="delivery-info">
+                            <p>Pagos 100% Seguros</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
+                        <div class="deliver-icon">
+                            <ion-icon name="storefront-outline"></ion-icon>
+                        </div>
+                        <div class="delivery-info">
+                            <p>Envio 48 Horas</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
+                        <div class="deliver-icon">
+                            <ion-icon name="ribbon-outline"></ion-icon>
+                        </div>
+                        <div class="delivery-info">
+                            <p>Garantia de Productos</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
+                        <div class="deliver-icon">
+                            <ion-icon name="bookmarks-outline"></ion-icon>
+                        </div>
+                        <div class="delivery-info">
+                            <p>Promociones</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
+                        <div class="deliver-icon">
+                            <ion-icon name="shield-checkmark-outline"></ion-icon>
+                        </div>
+                        <div class="delivery-info">
+                            <p>Tus datos seguros</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
