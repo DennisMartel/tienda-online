@@ -35,10 +35,20 @@
                 <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-sm-five mb-4">
                     <div class="card product-card">
                         <div class="card-body product-media">
-                            <img src="{{ \Storage::disk('local')->url($item->imagenes) }}" alt="" class="img-fluid">
+                            @php
+                                $imagenes = explode(',', $item->imagenes);
+                                $cont = 0;
+                            @endphp
+                            @foreach ($imagenes as $imagen)
+                                @break($cont == 1)
+                                <img src="{{ \Storage::disk('local')->url($imagen) }}" alt="" class="img-fluid">
+                                @php
+                                    $cont++;
+                                @endphp
+                            @endforeach
                             <div class="product-card-info">
                                 <h6 class="product-name">
-                                    <a href="{{ route('product-detail', $item->slug) }}">
+                                    <a href="{{ route('product-detail', 1) }}">
                                         {{ $item->nombre }}
                                     </a>
                                 </h6>

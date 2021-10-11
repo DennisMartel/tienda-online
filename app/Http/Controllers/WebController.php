@@ -11,9 +11,10 @@ class WebController extends Controller
     public function index()
     {
         $sliders = Slider::orderBy('id', 'DESC')->get();
-        $productos = DB::table('productos')->select(DB::raw('CONCAT(productos_imagenes.imagenes) as imagenes'), 
+        $productos = DB::table('productos')->select(DB::raw("GROUP_CONCAT(productos_imagenes.imagenes SEPARATOR ',') as `imagenes`"), 
         'productos.id', 'productos.nombre', 'productos.slug', 'productos.precio_venta')
         ->join('productos_imagenes', 'productos_imagenes.producto_id', '=', 'productos.id')
+        ->groupBy('productos.id', 'productos.nombre', 'productos.slug', 'productos.precio_venta')
         ->where('status', 'ACTIVO')->take(10)->get();
         return view('home', compact('sliders','productos'));
     }
